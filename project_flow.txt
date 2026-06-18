@@ -1,0 +1,6 @@
+----------------------Setting up project structure--------------------
+1. create repo,clone it in local
+2. create a virtual environment named 'venv' -conda create -n venv python=3.10
+3. activate the virtual environment - conda activate venv
+4. pip install cookiecutter (in terminal)
+5. cookiecutter -c v1 https://github.com/drivendata/cookiecutter-data-science (run in terminal)
