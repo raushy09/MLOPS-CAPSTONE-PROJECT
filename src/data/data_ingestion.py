@@ -74,11 +74,10 @@ def main():
     try:
         params = load_params(params_path='params.yaml')
         test_size = params['data_ingestion']['test_size']
-        # test_size = 0.2
         
         aws_access_key = os.getenv("AWS_ACCESS_KEY_ID")
         aws_secret_key = os.getenv("AWS_SECRET_ACCESS_KEY")
-        s3 = s3_connection.s3_operations("capstone-project-one", "aws_access_key", "aws_secret_key")
+        s3 = s3_connection.s3_operations("capstone-project-one", aws_access_key, aws_secret_key)
         df = s3.fetch_file_from_s3("data.csv")
 
 
