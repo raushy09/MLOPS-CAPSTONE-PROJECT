@@ -9,7 +9,7 @@ from io import StringIO
 # logger = logging.getLogger(__name__)
 
 class s3_operations:
-    def __init__(self, bucket_name, aws_access_key, aws_secret_key, region_name="us-east-1"):
+    def __init__(self, bucket_name, aws_access_key, aws_secret_key, region_name="eu-north-1"):
         """
         Initialize the s3_operations class with AWS credentials and S3 bucket details.
         """
