@@ -61,6 +61,14 @@ jobs:
             aws configure set region ${{ secrets.AWS_REGION }}
             aws ecr get-login-password --region ${{ secrets.AWS_REGION }} | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com
 
+      - name: Debug AWS Identity
+        run: |
+          aws sts get-caller-identity
+
+      - name: List ECR Repositories
+        run: |
+          aws ecr describe-repositories --region ${{ secrets.AWS_REGION }}
+
       - name: Build Docker image
         run: |
             docker build -t ${{ secrets.ECR_REPOSITORY }}:latest .
@@ -73,6 +81,8 @@ jobs:
     
       - name: Check Docker Authentication
         run: docker info
+
+      
 
       - name: Push Docker image to ECR
         run: |
